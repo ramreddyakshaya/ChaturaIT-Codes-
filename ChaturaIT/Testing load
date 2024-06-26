@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+long long a[100002],inch1[100002],qan1[100002],inch2[100002],qan2[100002];
+int main(){
+    long long n;
+    cin>>n;
+    for(long long i=0;i<n;i++)
+        cin>>a[i];
+    long long mx=0;
+    for(long long i=0;i<n;i++){
+        mx++;
+        mx=max(mx,a[i]);
+        inch1[i]=mx;
+        qan1[i]=(i==0 ? 0: qan1[i-1]);
+        qan1[i]+=mx-a[i];
+    }
+    mx=0;
+    for(long long i=n-1;i>=0;i--){
+        mx++;
+        mx=max(mx,a[i]);
+        inch2[i]=mx;
+        qan2[i]=(i==n-1 ? 0: qan2[i+1]);
+        qan2[i]+=mx-a[i];
+    }
+    long long ans=1000000000000000000;
+    for(long long i=0;i<n;i++){
+        long long pat=qan1[i]+qan2[i]-(min(inch1[i],inch2[i])-a[i]);
+        ans=min(ans,pat);
+    }
+    cout<<ans<<endl;
+    return 0;
+}

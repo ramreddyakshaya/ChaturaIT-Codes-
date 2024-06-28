@@ -22,3 +22,5 @@ int32_t main()
             ans+=x+(x-1)*i;
         }cout<<ans;
 }
+
+//https://codeforces.com/contest/103/problem/A

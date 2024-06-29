@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+#define ll              long long
+#define ull             unsigned long long
+#define pb              push_back
+#define fastread()      (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+using namespace std;
+int main()
+{
+    fastread();
+    ll n,f = 0,l = 0;
+    string s;
+    cin>>s;
+    int flag = 0;
+    stack<char>st;
+    for(ll i=0; i<s.size(); i++){
+        if(s[i] == '['){
+            st.push(s[i]);
+        }
+        else{
+            if(!st.empty() && st.top() == '['){
+                st.pop();
+            }
+            else{
+                st.push(s[i]);
+            }
+        }
+        if(!st.empty() && st.top() == ']' && !flag){
+            st.pop();
+            flag = 1;
+        }
+
+    }
+    if(flag == 0 && st.size() == 0){
+        cout<<"Yes"<<endl;
+    }
+    else if(flag == 1 && st.size() == 1 && st.top() == '['){
+            cout<<"Yes"<<endl;
+    }
+    else{
+        cout<<"No"<<endl;
+    }
+
+    return 0;
+}

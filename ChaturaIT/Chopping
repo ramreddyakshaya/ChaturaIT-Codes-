@@ -1,0 +1,60 @@
+#include <bits/stdc++.h>
+ 
+#define int long long
+#define nn '\n'
+typedef long long ll;
+ 
+const int mod=1e9+7;
+const int N=2e7+10;
+ 
+using namespace std;
+ 
+void solve()
+{
+    int n,d;
+    cin>>n>>d;
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    int ans=0;
+    int x=0,y=0;
+    vector<int>v;
+    for(int i=0;i<n-1;i++)
+    {
+        if(a[i]%2==0)x++;else y++;
+        if(x==y)
+        {
+            v.push_back(abs(a[i+1]-a[i]));
+            x=0;
+            y=0;
+        }
+    }
+    int sum=0;
+    sort(v.begin(),v.end());
+    for(int i=0;i<v.size();i++)
+    {
+        if(sum+v[i]>d)break;
+        sum+=v[i];
+        ans++;
+    }
+    cout<<ans;
+}
+ 
+int32_t main()
+{
+        ios_base::sync_with_stdio(false);
+        cin.tie(0);
+        cout.tie(0);
+ 
+        int test=1;
+
+        while(test--)
+        {
+            solve();
+        }
+        return 0;
+}
+
+//Reerence :https://codeforces.com/contest/998/problem/B

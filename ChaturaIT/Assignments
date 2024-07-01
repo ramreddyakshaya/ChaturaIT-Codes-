@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+ 
+#define int long int
+#define endl '\n'
+typedef long long ll;
+ 
+using namespace std;
+bool comp(pair<char,int>a,pair<char,int>b)
+{
+    return a.second<b.second;
+}
+void solve()
+{
+    string s;
+    int k;
+    cin>>s>>k;
+    map<char,int>m;
+    for(int i=0;i<s.size();i++)
+    {
+        m[s[i]]++;
+    }
+    vector<pair<char,int>>v;
+    for(auto i:m)
+    {
+        v.push_back({i.first,i.second});
+    }
+    sort(v.begin(),v.end(),comp);
+    for(int i=0;i<v.size();i++)
+    {
+        while(m[v[i].first]!=0)
+        {
+            if(k==0)break;
+            m[v[i].first]--;
+            k--;
+        }
+    }
+    set<int>st;
+    string ans="";
+    for(int i=0;i<s.size();i++)
+    {
+        if(m[s[i]]!=0)
+        {
+            m[s[i]]--;
+            st.insert(s[i]);
+            ans+=s[i];
+        }
+    }
+    cout<<st.size()<<endl;
+    for(auto i:ans)cout<<i;
+}
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cout.tie(nullptr);
+    cin.tie(nullptr);
+    int tc=1;
+    while(tc--)
+    {
+        solve();
+        cout<<endl;
+    }
+    return 0;
+}
+
+//Reference :https://codeforces.com/contest/101/problem/A

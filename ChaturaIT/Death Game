@@ -1,0 +1,52 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <bits/stdc++.h>
+ 
+#define ll long long
+#define ld long double
+#define mp make_pair
+#define all(x) (x).begin(),(x).end()
+#define rall(x) (x).rbegin(),(x).rend()
+#define pii pair<int,int> 
+#define vi vector<int>
+#define vvi vector<vector<int>>
+#define forn(it,from,to) for(int (it)=from; (it)<to; (it)++)
+const int  Inf = 1e9;
+ll LINF = (ll)4e18;
+const ll  mod = 1e9 + 7;
+using namespace std;
+#define M_PI       3.14159265358979323846   // pi
+ 
+ 
+int main()
+{
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#else
+	//freopen("xml.in", "r", stdin);
+	//freopen("xml.out", "w", stdout);
+#endif
+	ios::sync_with_stdio(false);
+	int n;
+	cin >> n;
+	vi l(n);
+	forn(i, 0, n) cin >> l[i];
+	reverse(all(l));
+	int ind = 0;
+	int ans = 0;
+	while (ind < n) {
+		int x = l[ind];
+		ans++;
+		while (x > 0 && ind < n) {
+			ind++;
+			x--;
+			if (ind<n) x = max(x, l[ind]);
+		}
+		ind++;
+	}
+	cout << ans;
+	return 0;
+}
+
+//Reference :https://codeforces.com/contest/892/problem/B

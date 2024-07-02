@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+ 
+#define int long long
+#define nn '\n'
+typedef long long ll;
+ 
+using namespace std;
+ 
+inline void solve()
+{
+    int n;
+    cin>>n;
+    vector<int>v;
+    map<int,int>m;
+    for(int i=0;i<n;i++)
+    {
+        int x;
+        cin>>x;
+        m[x]++;
+    }
+    while(1)
+    {
+        for(auto &i:m)
+        {
+            if(i.second>0)
+            {
+                v.push_back(i.first);
+                i.second--;
+            }
+        }
+        int c=0;
+        for(auto i:m)
+        {
+            if(i.second>0)c++;
+        }
+        if(c==0)break;
+    }
+    //for(auto i:v)cout<<i<<' ';
+    int ans=0;
+    for(int i=1;i<v.size();i++)
+    {
+        if(v[i]>v[i-1])ans++;
+    }cout<<ans;
+}
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cout.tie(nullptr);
+    cin.tie(nullptr);
+//    freopen("angle1.in", "r", stdin);
+//    freopen("angle1.out", "w", stdout);
+    int tc=1;
+    //cin>>tc;
+    while(tc--)
+    {
+        solve();
+    }
+    return 0;
+}
+
+//Reference :https://chaturaitlearnings.com/problem/paintings

@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+#define int long long
+#define endl '\n'
+using namespace std;
+void solve()
+{
+    int n,x;
+    cin>>n>>x;
+    map<int,int>m;
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+        m[a[i]]++;
+    }
+    for(auto i:m)
+    {
+        if(i.second>1)
+        {
+            cout<<0;
+            return;
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        if((a[i]&x)==a[i])continue;
+        if(m[(a[i]&x)])
+        {
+            cout<<1;
+            return;
+        }
+    }
+    m.clear();
+    for(int i=0;i<n;i++)
+    {
+        m[(a[i]&x)]++;
+    }
+    for(auto i:m)
+    {
+        if(i.second>1)
+        {
+            cout<<2;
+            return;
+        }
+    }
+    cout<<-1;
+}
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);cout.tie(nullptr);
+    int ts=1;
+//    cin>>ts;
+    while(ts--)solve();
+}
+
+//Reference:https://codeforces.com/contest/1013/problem/B

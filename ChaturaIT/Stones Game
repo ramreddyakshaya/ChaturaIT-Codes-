@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+   int t;
+   scanf("%d",&t);
+   for(int i=0;i<t;i++){
+       int a,b,c;
+       scanf("%d%d%d",&a,&b,&c);
+       int thissum=min(c/2,b);
+       int sum=thissum*3;
+       b-=thissum;
+       sum+=min(a,b/2)*3;
+       printf("%d\n",sum);
+   }
+   return 0;
+}
+
+//Reference :https://codeforces.com/contest/1236/problem/A

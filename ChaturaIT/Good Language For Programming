@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool cmp(int a, int b)
+{
+    return a>b;
+}
+int main()
+{
+ 
+     int t;
+      cin>>t;
+      while(t--)
+      {
+            long long a, b, n, k=0;
+        cin>>a>>b>>n;
+        while(a<=n || b<=n)
+        {
+            if(a<b) a=a+b;
+            else b=a+b;
+            k++;
+        }
+        cout<<k-1<<endl;
+ 
+      }
+}
+
+//Reference: https://codeforces.com/contest/1368/problem/A

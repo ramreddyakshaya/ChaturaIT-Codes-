@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+set<char> st;
+int cnt[200]={0};
+ 
+int main(){
+    string str;
+    cin>>str;
+    bool flag=true;
+    int temp='a';
+    cnt[temp-1]=1;
+    for(int i=0;i<str.size();i++){
+        if(!cnt[str[i]]){
+            if(!cnt[str[i]-1]){
+                flag=false;
+                break;
+            }else cnt[str[i]]=1;
+        }
+    }
+    printf("%s",flag?"YES":"NO");
+    return 0;
+}
+
+//Reference :https://codeforces.com/contest/765/problem/B

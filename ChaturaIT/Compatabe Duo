@@ -1,0 +1,40 @@
+#include <iostream>
+#include<vector>
+#include<cmath>
+#include<algorithm>
+#include<string>
+using namespace std;
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--)
+   {
+       int n;
+       cin>>n;
+       int a[n];
+       for(int i=0;i<n;i++)cin>>a[i];
+       vector<int>par,nepar;
+       int ok=0;
+       for(int i=0;i<n;i++)
+        {
+            if(a[i]%2==0)par.push_back(a[i]);else 
+            nepar.push_back(a[i]);
+        }
+        if(par.size()%2==0&&nepar.size()%2==0){ok=1;}
+        if(par.size()%2==1&&nepar.size()%2==1)
+        {
+            for(int i=0;i<par.size();i++)
+            {
+                for(int j=0;j<nepar.size();j++)
+                {
+                    if(abs(par[i]-nepar[j])==1){ok=1;break;}
+                }
+            }
+            
+        }cout<<(ok?"YES":"NO")<<endl;
+        
+   }
+}
+
+//Refereance:https://codeforces.com/contest/1360/problem/C

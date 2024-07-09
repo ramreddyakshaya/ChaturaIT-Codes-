@@ -1,0 +1,83 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define nn endl
+#define rep(i,n) for(int i=0; i<n; i++)
+using namespace std;
+ 
+ll nsd(ll a,ll b)
+{
+    while(b!=0)
+    {
+        a=a%b;
+        swap(a,b);
+    }
+    return a;
+}
+ll  nsk(ll  a,ll  b)
+{
+    return a/nsd(a,b)*b;
+}
+bool cmp(ll  a, ll  b)
+{
+    return a>b;
+}
+void sorts(string&str)
+{
+   sort(str.begin(),str.end());
+}
+ll sumd(ll n)
+{
+    if (n<0)
+    {
+        n=-n;
+    }
+ 
+    ll s=0;
+    while (n!=0)
+    {
+        n/=10;
+        s++;
+    }
+    return s;
+}
+int suma(ll n)
+{
+    int s=0;
+    while(n!=0)
+    {
+        s+=n%10;
+        n/=10;
+    }
+    return s;
+}
+ll  fact(ll  n)
+{
+    if(n==1)return 1;else
+        return n*fact(n-1);
+}
+int factnum(int n)
+{
+    int c = 0;
+    for (int i=5;n/i>=1;i*=5)
+        c+=n/i;
+    return c;
+}
+ 
+int main()
+{
+        ios_base::sync_with_stdio(false);
+        cin.tie(0);
+        cout.tie(0);
+ 
+         int t;
+         cin>>t;
+         while(t--)
+         {
+             int a,b;
+             cin>>a>>b;
+             cout<<min(a,min(b,(a+b)/3))<<nn;
+ 
+         }
+}
+
+//Reference :https://codeforces.com/contest/1366/problem/A

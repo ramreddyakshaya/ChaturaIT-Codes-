@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+ 
+#define int long long
+#define endl '\n'
+typedef long long ll;
+ 
+using namespace std;
+ 
+void solve()
+{
+    string a,b;
+    cin>>a>>b;
+    sort(b.begin(),b.end());
+    int l=0,r=b.size()-1;
+    while(l!=a.size())
+    {
+        if(a[l]<b[r])
+        {
+            a[l]=b[r];
+            r--;
+        }else l++;
+    }
+    cout<<a;
+}
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cout.tie(nullptr);
+    cin.tie(nullptr);
+    int tc=1;
+    while(tc--)
+    {
+        solve();
+        cout<<endl;
+    }
+    return 0;
+}
+
+//Reference :https://codeforces.com/contest/169/problem/B

@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+ 
+#define int long long
+#define nn '\n'
+typedef long long ll;
+ 
+using namespace std;
+ 
+int32_t main()
+{
+        ios_base::sync_with_stdio(false);
+        cin.tie(0);
+        cout.tie(0);
+ 
+        int t;
+        cin>>t;
+        while(t--)
+        {
+            int n,x;
+            cin>>n>>x;
+            int a[n];
+            for(int i=0;i<n;i++)
+            {
+                cin>>a[i];
+            }
+            sort(a,a+n);
+            reverse(a,a+n);
+            int ans=0,pos=0;
+            for(auto i:a)
+            {
+                pos++;
+                if(i*pos>=x)
+                {
+                    ans++;
+                    pos=0;
+                }
+            }cout<<ans<<nn;
+        }
+ 
+ 
+}
+
+//Reference :https://codeforces.com/contest/1380/problem/C

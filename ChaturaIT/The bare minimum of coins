@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+#define int long long
+#define endl '\n'
+using namespace std;
+int n,k,a,b;
+int f(int n)
+{
+    if(n==1)return 0;
+    if(n%k==0)return f(n/k)+min(b,(n-(n/k))*a);
+    return f(n-min(n-1,n%k))+a*min(n-1,n%k);
+}
+void solve()
+{
+    cin>>n>>k>>a>>b;
+    if(k==1)cout<<(n-1)*a;
+    else cout<<f(n);
+}
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);cout.tie(nullptr);
+    int ut=1;
+//    cin>>ut;
+    while(ut--)solve();
+}
+
+//Reference:https://codeforces.com/contest/940/problem/B

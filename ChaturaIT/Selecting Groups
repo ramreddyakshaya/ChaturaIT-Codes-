@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool cmp(int a, int b)
+{
+    return a>b;
+}
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    int a[n];
+    int s=0;
+    for(int i=0;i<n;i++)
+        cin>>a[i];
+    for(int i=0; i<n;i++)
+    
+        if (5-a[i]>=k)s++;
+    int sum=s/3;
+    cout<<sum;
+ 
+ 
+}
+//Reference:https://codeforces.com/contest/432/problem/A

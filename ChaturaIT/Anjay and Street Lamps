@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+#define int long long
+#define endl '\n'
+#define M_PI 3.14159265358979323846
+//#define kilk_c(n) (int)log10(n)+1
+#define fast ios_base::sync_with_stdio(false);cout.tie(NULL);cin.tie(NULL);
+using namespace std;
+bool rev_sort(int a,int b){
+    return a>b;
+}
+void Help(){
+  int n,l;
+  cin>>n>>l;
+  int arr[n];
+  for(int i=0;i<n;i++){
+    cin>>arr[i];
+ 
+  }
+  sort(arr,arr+n);
+  double res=arr[0];
+  for(int i=1;i<n;i++){
+    res=max(res,(arr[i]-arr[i-1])/2.0);
+  }
+  res=max(res,(l-arr[n-1])*1.0);
+  cout<<fixed<<setprecision(10)<<res<<endl;
+}
+int32_t main()
+{
+    fast;
+    int t=1;
+    //cin>>t;
+    while (t--) {
+        Help();
+    }
+}
+
+//Reference:https://codeforces.com/contest/492/problem/B

@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+vector<pair<int,int>>moves={{1,1},{1,-1},{-1,1},{-1,-1}};
+void solve(){
+	int n;
+	cin>>n;
+	pair<int,int>a[n];
+	for(int i=0;i<n;i++){
+		cin>>a[i].first;
+		a[i].second=i;
+	}
+	int c[n];
+	sort(a,a+n);
+	int s=0;
+	for(int i=0;i<n;){
+		int j=i+1;
+		s+=a[i].first;
+		while(j<n&&s>=a[j].first){
+			s+=a[j].first;
+			j++;
+		}
+		for(int k=i;k<j;k++){
+			c[a[k].second]=j-1;
+		}
+		i=j;
+	}
+	for(int i=0;i<n;i++){
+		cout<<c[i]<<' ';
+	}
+	cout<<"\n";
+}
+int32_t main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	int t=1;
+	cin>>t;
+	while(t--){
+		solve();
+	}
+}
+
+//Refe:https://codeforces.com/problemset/problem/1904/B

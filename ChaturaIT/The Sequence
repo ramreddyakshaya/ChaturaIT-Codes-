@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+ 
+#define int long long
+ 
+using namespace std;
+ 
+int get(int n, int len, int k) {
+    if (k == len / 2) {
+        return n;
+    }
+    if (k < len / 2) {
+        return get(n - 1, len / 2, k);
+    } else {
+        return get(n - 1, len / 2, k - len / 2 - 1);
+    }
+}
+ 
+signed main() {
+    int n, k;
+    cin >> n >> k;
+    cout << get(n, (1LL << n) - 1, k - 1) << endl;
+    return 0;
+}
+//Reference:https://codeforces.com/contest/743/problem/B

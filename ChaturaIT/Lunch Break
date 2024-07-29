@@ -1,0 +1,17 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+   int T;
+   cin>>T;
+   while(T--)
+   {
+       int x;
+       cin>>x;
+       if(x>=1 && x<=4)
+       cout<<"YES"<<"\n";
+       else
+       cout<<"NO"<<"\n";
+   }
+}

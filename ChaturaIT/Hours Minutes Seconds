@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int s;
+	cin>>s;
+	int h = s/3600;
+    int remaining_seconds = s%3600;
+    int m = remaining_seconds/60;
+    int sec = remaining_seconds%60;
+	cout<<h<<":"<<m<<":"<<sec<<"\n";
+}

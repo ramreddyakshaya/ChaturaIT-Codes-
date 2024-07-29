@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int T;
+	cin>>T;
+	while(T--)
+	{
+		int a,b;
+		cin>>a>>b;
+		int k=a*b;
+		int ans=k/4;
+		ans+=k%4?1:0;
+		cout<<ans<<"\n";
+	}
+	return 0;
+}

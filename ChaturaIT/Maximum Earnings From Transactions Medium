@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int maxProfit(vector<int> &prices) {
+    int ret = 0;
+    for (auto p = 1; p < prices.size(); ++p) 
+      ret += max(prices[p] - prices[p - 1], 0);    
+    return ret;
+}
+int main() {
+	vector<int>v;
+	int x;
+	while(cin>>x)
+	v.push_back(x);
+	cout<<maxProfit(v)<<"\n";
+	return 0;
+}

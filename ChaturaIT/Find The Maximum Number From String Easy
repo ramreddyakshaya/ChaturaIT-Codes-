@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+string removeDigit(string num, char digit) {
+         string str="";
+        for(int i=0;i<num.size();i++)
+        {
+            if(num[i]==digit)
+            {
+                string temp=num.substr(0,i)+num.substr(i+1,num.size()-i+1);
+                str=max(temp,str);
+            }
+            
+        }
+        return str;
+}
+int main() {
+	string str;
+	char ch;
+	cin>>str;
+	cin>>ch;
+	cout<<removeDigit(str,ch)<<"\n";
+	return 0;
+}

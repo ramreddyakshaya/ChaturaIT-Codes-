@@ -1,0 +1,19 @@
+def maximizeSum(nums, k):
+    nums.sort()
+    sum_val = 0
+    s = 0
+    while k != 0:
+        k -= 1
+        if nums[s] <= 0:
+            s += 1
+        sum_val += nums[s]
+        nums[s] -= 1
+    return sum_val
+
+def main():
+    k = int(input())
+    v = list(map(int, input().split()))
+    print(maximizeSum(v, k))
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,23 @@
+	#include <bits/stdc++.h>
+	using namespace std;
+
+	int convertTime(string current, string correct) {
+        int curr_min=stoi(current.substr(0,2))*60+stoi(current.substr(3,2));
+        int correct_min=stoi(correct.substr(0,2))*60+stoi(correct.substr(3,2));
+        int diff=correct_min-curr_min;
+        vector<int>v={60,15,5,1};
+        int k=3;
+        int count=0;
+        for(int o:v)
+        {
+            count+=diff/o;
+            diff%=o;
+        }
+        return count;
+    }
+	int main() {
+		string str1,str2;
+		cin>>str1>>str2;
+		cout<<convertTime(str1,str2)<<"\n";
+		return 0;
+	}

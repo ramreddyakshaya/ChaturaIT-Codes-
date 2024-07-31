@@ -1,0 +1,23 @@
+#include <iostream>
+#include<bits/stdc++.h>
+
+using namespace std;
+bool canJump(vector<int>& nums) {
+        int i = 0;
+    for (int reach = 0; i < nums.size() && i <= reach; ++i)
+        reach = max(i + nums[i], reach);
+    return i == nums.size();
+    }
+int main() {
+   vector<int>v;
+   int x;
+   while(cin>>x)
+   {
+    v.push_back(x);
+   }
+   if(canJump(v))
+   cout<<"true";
+   else
+   cout<<"false";
+    return 0;
+}

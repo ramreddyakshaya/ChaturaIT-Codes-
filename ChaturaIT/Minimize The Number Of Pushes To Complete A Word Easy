@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+int minimumPushes(string word) {
+        vector<int>v(26,0);
+        for(int i=0;i<word.size();i++)
+        {
+            v[word[i]-97]++;
+        }
+        int sum=0;
+        sort(v.rbegin(),v.rend());
+        for(int i=0;i<v.size();i++)
+        {
+            if(i<8)
+            sum+=v[i];
+            else if(i<16)
+            sum+=v[i]*2;
+            else if(i<24)
+            sum+=v[i]*3;
+            else
+            sum+=v[i]*4;
+        }
+        return sum;
+    }
+int main() {
+	string str;
+	cin>>str;
+	cout<<minimumPushes(str)<<"\n";
+	return 0;
+}

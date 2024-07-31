@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+ int longestPalindrome(string s) {
+        unordered_map<char,int>mp;
+        for(auto x:s)
+        {
+            mp[x]++;
+        }
+        int oddCount=0;
+        for(auto x:mp)
+        {
+            if(x.second%2!=0)
+            {
+                oddCount++;
+            }
+        }
+        if(oddCount>1)
+        return s.size()-oddCount+1;
+        return s.size();
+    }
+int main() {
+	string str;
+	cin>>str;
+	cout<<longestPalindrome(str)<<"\n";
+	return 0;
+}

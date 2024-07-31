@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+static bool comp(string &s1,string &s2)
+{
+    return s1+s2>s2+s1;
+}
+string largestNumber(vector<int>& nums) {
+        vector<string>s;
+        for(auto x:nums)
+        {
+            s.push_back(to_string(x));
+        }
+        sort(s.begin(),s.end(),comp);
+        string str="";
+        for(auto x:s)
+        {
+            str+=x;
+        }
+        while(str[0]=='0' && str.size()>1)
+        str.erase(0,1);
+        return str;
+    }
+int main() {
+	vector<int>v;
+	int x;
+	while(cin>>x)
+	v.push_back(x);
+	cout<<largestNumber(v)<<"\n";
+	return 0;
+}

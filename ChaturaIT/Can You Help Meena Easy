@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int minimumMoves(string s) {
+        int i=0,n=s.size(),count=0;
+        while(i<n)
+        {
+            if(s[i]=='O')
+            i++;
+            else
+            count++,i+=3;
+        }
+        return count;
+    }
+int main() {
+	string str;
+	cin>>str;
+	cout<<minimumMoves(str)<<"\n";
+	return 0;
+}

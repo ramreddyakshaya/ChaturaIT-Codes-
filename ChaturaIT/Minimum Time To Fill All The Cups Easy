@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int fillCups(vector<int>& a) {
+        return max({a[0],a[1],a[2],(a[0]+a[1]+a[2]+1)/2});
+    }
+int main() {
+	vector<int>n;
+	int x;
+	while(cin>>x)
+	n.push_back(x);
+	cout<<fillCups(n)<<"\n";
+	return 0;
+}

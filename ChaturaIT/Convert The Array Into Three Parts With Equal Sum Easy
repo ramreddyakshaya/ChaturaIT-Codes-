@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool canThreePartsEqualSum(vector<int>& arr) {
+       int sum=accumulate(arr.begin(),arr.end(),0);
+       if(sum%3!=0)
+       return false;
+
+       int subsum=sum/3;
+       bool f=false,s=false,t=false;
+       int pre=0;
+       for(auto x:arr)
+       {
+        pre+=x;
+        if(!f && pre==subsum)
+        f=true;
+        else if(f && !s && pre==subsum*2)
+        s=true;
+        else if(f && s && pre==subsum*3)
+        t=true;
+       }
+        return (f && s && t);
+    }
+int main() {
+	vector<int>v;
+	int x;
+	while(cin>>x)
+	{
+		v.push_back(x);
+	}
+	if(canThreePartsEqualSum(v)==true)
+	cout<<"True"<<"\n";
+	else
+	cout<<"False"<<"\n";
+	return 0;
+}

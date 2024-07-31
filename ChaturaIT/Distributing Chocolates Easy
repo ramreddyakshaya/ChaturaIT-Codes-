@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+int findContentChildren(vector<int>& g, vector<int>& s) {
+        sort(g.rbegin(),g.rend());
+        sort(s.rbegin(),s.rend());
+        int count=0;
+        int j=0;
+        for(int i=0;i<g.size();i++)
+        {
+            if(j<s.size() && g[i]<=s[j])
+           { count++;
+            j++;}
+        }
+        return count;
+    }
+int main() {
+	vector<int>g,s;
+	int n,m;
+	cin>>n>>m;
+	while(n--)
+	{
+		int x;
+		cin>>x;
+		g.push_back(x);
+	}
+	while(m--)
+	{
+		int x;
+		cin>>x;
+		s.push_back(x);
+	}
+	cout<<findContentChildren(g,s)<<"\n";
+	return 0;
+}

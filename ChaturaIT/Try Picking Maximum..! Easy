@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int kItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
+        int total=0;
+        int select=min(k,numOnes);
+        total+=select;
+        k-=select;
+
+        select=min(k,numZeros);
+        k-=select;
+
+        select=min(k,numNegOnes);
+        total-=select;
+        k-=select;
+
+        return total;
+
+    }
+int main() {
+	int one,zero,neg,k;
+	cin>>one>>zero>>neg>>k;
+	cout<<kItemsWithMaximumSum(one,zero,neg,k)<<"\n";
+	return 0;
+}

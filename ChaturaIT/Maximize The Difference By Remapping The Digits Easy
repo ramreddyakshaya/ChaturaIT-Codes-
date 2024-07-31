@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int minMaxDifference(int num) {
+        string s=to_string(num),large=to_string(num),small=to_string(num);
+        char d1=-1,d2=-1;
+        for(int i=0;i<s.size();i++)
+        {
+            if(d1==-1 && s[i]!='9')
+            {
+                d1=s[i];
+                large[i]='9';
+            }
+            else
+            {
+                large[i]=(s[i]==d1)?'9':s[i];
+            }
+
+            if(d2==-1 && s[i]!='0')
+            {
+                d2=s[i];
+                small[i]='0';
+            }
+            else
+            {
+                small[i]=(s[i]==d2)?'0':s[i];
+            }
+        }
+        return stoi(large)-stoi(small);
+    }
+int main() {
+	int n;
+	cin>>n;
+	cout<<minMaxDifference(n)<<"\n";
+	return 0;
+}

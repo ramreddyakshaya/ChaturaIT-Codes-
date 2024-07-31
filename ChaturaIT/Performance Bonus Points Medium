@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+    int candy(vector<int>& r) {
+        vector<int>v(r.size(),1);
+        for(int i=1;i<r.size();i++)
+        {
+            if(r[i]>r[i-1])
+            {
+                v[i]=v[i-1]+1;
+            }
+        }
+        for(int i=r.size()-2;i>=0;i--)
+        {
+            if(r[i]>r[i+1])
+            {
+                v[i]=max(v[i],v[i+1]+1);
+            }
+        }
+        int count=0;
+        for(auto x: v)
+        count+=x;
+        return count;
+    }
+int main() {
+	vector<int>v;
+	int x;
+	while(cin>>x)
+	v.push_back(x);
+	cout<<candy(v);
+	return 0;
+}
